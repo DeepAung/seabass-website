@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <div class="head">
-      <RouterLink to="/">Sea Bass Website</RouterLink>
+      <RouterLink to="/">รายการอาหาร</RouterLink>
     </div>
     <div class="items">
       <RouterLink to="/">Home</RouterLink>

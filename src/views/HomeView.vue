@@ -1,9 +1,17 @@
-<template>Hello, Home View</template>
+<template>
+  <div class="food-container">
+    <FoodItem v-for="food in foodList" :food="food" />
+  </div>
+</template>
 
 <script>
 import db from "../database.json";
+import FoodItem from '../components/FoodItem.vue'
 
 export default {
+  components: {
+    FoodItem,
+  },
   data() {
     return {
       foodList: [],
@@ -15,4 +23,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.food-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 2vw;
+  gap: 2vw;
+}
+
+</style>
