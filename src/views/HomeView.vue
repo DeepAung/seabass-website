@@ -1,6 +1,4 @@
-<template>
-Hello, Home View
-</template>
+<template>Hello, Home View</template>
 
 <script>
 import db from "../database.json";
