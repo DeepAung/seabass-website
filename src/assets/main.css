@@ -1,21 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
+
+
 :root {
-  /* --first-color: rgb(67, 154, 151);
-  --second-color: rgb(98, 182, 183);
-  --third-color: rgb(151, 222, 206);
-  --fourth-color: rgb(203, 237, 213); */
   --first-color: rgb(28, 49, 94);
   --second-color: rgb(34, 124, 112);
   --third-color: rgb(136, 164, 124);
   --fourth-color: rgb(230, 226, 195);
-/* https://colorhunt.co/palette/0a26471442722052952c74b3 */
+/* https://colorhunt.co/palette/1c315e227c7088a47ce6e2c3 */
 }
 
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 
 #app {

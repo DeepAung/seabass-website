@@ -1,7 +1,3 @@
-<template>
-  Hello, Detail View
-</template>
+<template>Hello, Detail View</template>
 
-<style>
-
-</style>
+<style></style>

@@ -1,24 +1,23 @@
 <template>
-<div @click="goToDetail(food.id)" class="item-container">
-  <div class="img-wrapper">
-    <img :src="food.images[0]" alt="">
+  <div @click="goToDetail(food.id)" class="item-container">
+    <div class="img-wrapper">
+      <img :src="food.images[0]" alt="" />
+    </div>
+    <div class="info">
+      {{ food.name }}
+    </div>
   </div>
-  <div class="info">
-    {{ food.name }}
-  </div>
-</div>
 </template>
 
 <script>
-
 export default {
-  props: ['food'],
+  props: ["food"],
   methods: {
     goToDetail(id) {
       this.$router.push(`/detail/${id}`);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>
@@ -35,7 +34,7 @@ export default {
 
 .item-container .img-wrapper {
   width: 100%;
-  height: 80%;
+  height: 75%;
   overflow: hidden;
 }
 
@@ -48,17 +47,20 @@ export default {
 
 .item-container:hover .img-wrapper img {
   transform: scale(1.1);
+  filter: contrast(1.1);
 }
 
 .item-container .info {
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+
   width: 100%;
-  height: 20%;
+  height: 25%;
   background-color: var(--second-color);
-  
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center; 
+  text-align: center;
 }
-
 </style>
