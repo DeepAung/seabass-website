@@ -1,7 +1,20 @@
 <template>
-  Hello, Home View
+Hello, Home View
 </template>
 
-<style>
+<script>
+import db from "../database.json";
 
-</style>
+export default {
+  data() {
+    return {
+      foodList: [],
+    };
+  },
+  mounted() {
+    this.foodList = db.foods;
+  },
+};
+</script>
+
+<style></style>
