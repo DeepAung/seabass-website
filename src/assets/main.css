@@ -1,5 +1,20 @@
+:root {
+  --first-color: rgb(10, 38, 71);
+  --second-color: rgb(20, 66, 114);
+  --third-color: rgb(32, 82, 149);
+  --fourth-color: rgb(103, 166, 220);
+/* https://colorhunt.co/palette/0a26471442722052952c74b3 */
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#app {
+  background-color: var(--fourth-color);
+  min-height: 100vh;
 }
