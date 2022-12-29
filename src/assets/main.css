@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
 
-
+/* rgb(34, 124, 112) */
 :root {
   --first-color: rgb(28, 49, 94);
-  --second-color: rgb(34, 124, 112);
+  --second-color: rgb(30, 117, 103);
   --third-color: rgb(136, 164, 124);
   --fourth-color: rgb(230, 226, 195);
+  --nav-hover-color: rgb(74, 214, 196);
+  --hover-color: rgb(180, 204, 255);
 /* https://colorhunt.co/palette/1c315e227c7088a47ce6e2c3 */
 }
 

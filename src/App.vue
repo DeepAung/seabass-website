@@ -1,6 +1,8 @@
 <template>
-  <Navbar />
-  <RouterView />
+  <div class="container">
+    <Navbar class="navbar" />
+    <RouterView />
+  </div>
 </template>
 
 <script>
@@ -14,4 +16,17 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.navbar {
+  position: fixed;
+  width: 100vw;
+  height: 10vh;
+  
+  top: 0;
+  z-index: 9999;
+}
+
+.container {
+  padding-top: 10vh;
+}
+</style>
