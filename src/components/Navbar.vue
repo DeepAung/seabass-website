@@ -48,7 +48,6 @@ export default {
 
 .head > *:hover {
   color: var(--nav-hover-color);
-  font-size: 2.1rem;
 }
 
 .items {
@@ -68,11 +67,32 @@ export default {
   margin: 0 1rem;
   text-decoration: none;
   font-size: 1rem;
+
+  display: inline-block;
+  position: relative;
 }
 
 .items > *:hover {
   color: var(--nav-hover-color);
-  font-size: 1.1rem;
+}
+
+.items > *::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+
+.items > *:hover::after {
+  transform: scaleX(1);
+  background-color: var(--nav-hover-color);
+  transform-origin: bottom center;
 }
 
 @media only screen and (max-width: 700px) {
@@ -82,16 +102,8 @@ export default {
     text-decoration: none;
   }
 
-  .head > *:hover {
-    font-size: 3.1vw;
-  }
-
   .items > * {
     font-size: 2.3vw;
   }
-
-  .items > *:hover {
-  font-size: 2.4vw;
-}
 }
 </style>
