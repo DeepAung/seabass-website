@@ -30,6 +30,11 @@ export default {
   border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.item-container:hover {
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
 .item-container .img-wrapper {
@@ -48,6 +53,10 @@ export default {
 .item-container:hover .img-wrapper img {
   transform: scale(1.1);
   filter: contrast(1.1);
+}
+
+.item-container:hover .info {
+  color: var(--hover-color);
 }
 
 .item-container .info {

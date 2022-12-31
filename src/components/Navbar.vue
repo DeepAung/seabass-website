@@ -26,22 +26,28 @@ export default {
 
 <style scoped>
 .navbar-container {
-  height: 10vh;
   background-color: var(--first-color);
   padding: 0 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.562);
 }
 
 .head {
-  flex-grow: 2;
+  flex-grow: 0.5;
+  text-align: center;
 }
 
 .head > * {
-  font-size: xx-large;
+  font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
+}
+
+.head > *:hover {
+  color: var(--nav-hover-color);
 }
 
 .items {
@@ -54,13 +60,39 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: right;
-  margin-right: 10%;
+  margin-right: 5vw;
 }
 
 .items > * {
   margin: 0 1rem;
   text-decoration: none;
-  font-size: 400;
+  font-size: 1rem;
+
+  display: inline-block;
+  position: relative;
+}
+
+.items > *:hover {
+  color: var(--nav-hover-color);
+}
+
+.items > *::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+
+.items > *:hover::after {
+  transform: scaleX(1);
+  background-color: var(--nav-hover-color);
+  transform-origin: bottom center;
 }
 
 @media only screen and (max-width: 700px) {
@@ -69,6 +101,7 @@ export default {
     font-weight: 600;
     text-decoration: none;
   }
+
   .items > * {
     font-size: 2.3vw;
   }
