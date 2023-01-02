@@ -34,6 +34,7 @@ export default {
 }
 
 .item-container:hover {
+  outline: 0.3vw solid var(--hover-color);
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
