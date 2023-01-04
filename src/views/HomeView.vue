@@ -8,6 +8,7 @@
 import db from "../database.json";
 import FoodItem from "../components/FoodItem.vue";
 
+
 export default {
   components: {
     FoodItem,
