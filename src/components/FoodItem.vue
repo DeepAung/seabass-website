@@ -1,7 +1,7 @@
 <template>
   <div @click="goToDetail(food.id)" class="item-container">
     <div class="img-wrapper">
-      <img :src="food.images[0]" alt="" />
+      <img :src="food.images[0]" :alt="food.name" />
     </div>
     <div class="info">
       {{ food.name }}
@@ -20,21 +20,21 @@ export default {
 };
 </script>
 
-<style>
-* {
-  transition: all 0.3s;
-}
-
+<style scoped>
 .item-container {
-  height: 35vh;
-  border-radius: 1rem;
+  height: 250px;
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
 }
 
 .item-container:hover {
-  outline: 0.3vw solid var(--hover-color);
+  outline: 0.2rem solid var(--hover-color);
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -42,6 +42,10 @@ export default {
   width: 100%;
   height: 75%;
   overflow: hidden;
+}
+
+.item-container * {
+  transition: all 0.3s;
 }
 
 .item-container .img-wrapper img {
@@ -52,7 +56,7 @@ export default {
 }
 
 .item-container:hover .img-wrapper img {
-  transform: scale(1.1);
+  transform: scale(1.08);
   filter: contrast(1.1);
 }
 
@@ -62,7 +66,8 @@ export default {
 
 .item-container .info {
   font-weight: 500;
-  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+  font-size: 110%;
+  /* font-size: clamp(0.9rem, 1.5vw, 1.3rem); */
 
   width: 100%;
   height: 25%;
