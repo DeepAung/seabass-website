@@ -33,7 +33,9 @@ export default {
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
 }
 
-.item-container:hover {
+.item-container:hover,
+.item-container:focus {
+  border-radius: 16px;
   outline: 0.2rem solid var(--hover-color);
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
 }
