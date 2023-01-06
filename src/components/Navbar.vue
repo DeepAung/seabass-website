@@ -1,13 +1,19 @@
 <template>
   <div class="navbar-container">
     <div class="head">
-      <RouterLink to="/">รายการอาหาร</RouterLink>
+      <RouterLink to="/" class="logo">รายการอาหาร</RouterLink>
+      <div class="menu-icon">
+        <input type="checkbox" />
+        <span class="first-span"></span>
+        <span class="second-span"></span>
+        <span class="third-span"></span>
+      </div>
     </div>
-    <div class="items">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/">About</RouterLink>
-      <a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a>
-    </div>
+    <ul class="items">
+      <li><RouterLink to="/">Home</RouterLink></li>
+      <li><RouterLink to="/">About</RouterLink></li>
+      <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
+    </ul>
   </div>
 </template>
 
@@ -27,83 +33,174 @@ export default {
 <style scoped>
 .navbar-container {
   background-color: var(--first-color);
-  padding: 0 2rem;
+  padding: 0 5vw;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 
   box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.562);
 }
 
-.head {
-  flex-grow: 0.5;
-  text-align: center;
-}
+/* logo -------------------------------------------- */
 
-.head > * {
+.head .logo {
   font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
+  transition: color 0.25s ease-out;
 }
 
-.head > *:hover {
+.head .logo:hover {
   color: var(--nav-hover-color);
 }
+
+/* items -------------------------------------------- */
 
 .items {
   font-weight: 500;
 
   height: 100%;
-  flex-grow: 2;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: right;
-  margin-right: 5vw;
 }
 
-.items > * {
+.items li {
+  list-style: none;
+}
+
+.items li * {
   margin: 0 1rem;
   text-decoration: none;
   font-size: 1rem;
 
   display: inline-block;
   position: relative;
+  transition: color 0.25s ease-out;
 }
 
-.items > *:hover {
+.items li *:hover {
   color: var(--nav-hover-color);
 }
 
-.items > *::after {
+.items li *::after {
   content: "";
   position: absolute;
   width: 100%;
-  transform: scaleX(0);
+  transform: translateZ(0) scaleX(0);
   height: 2px;
   bottom: 0;
   left: 0;
   background-color: white;
+
   transform-origin: bottom center;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, background-color 0.25s ease-out;
 }
 
-.items > *:hover::after {
-  transform: scaleX(1);
+.items li *:hover::after {
+  transform: translateZ(0) scaleX(1);
   background-color: var(--nav-hover-color);
   transform-origin: bottom center;
 }
 
+/* menu-icon -------------------------------------------- */
+
+.menu-icon {
+  position: relative;
+  display: none;
+}
+
+.menu-icon input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  cursor: pointer;
+  opacity: 0;
+  z-index: 999;
+}
+
+.menu-icon span {
+  display: block;
+  height: 0.2rem;
+  width: 1.4rem;
+  margin: 0.3rem 0;
+  border-radius: 100px;
+  background-color: white;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+.menu-icon .first-span {
+  transform-origin: 0% 0%;
+}
+.menu-icon .third-span {
+  transform-origin: 0% 100%;
+}
+
+.menu-icon input:checked ~ .first-span {
+  transform: translate(4px, 0.55px) rotate(45deg);
+}
+
+.menu-icon input:checked ~ .second-span {
+  opacity: 0;
+}
+
+.menu-icon input:checked ~ .third-span {
+  transform: translate(4px, -0.55px) rotate(-45deg);
+}
+
+
 @media only screen and (max-width: 700px) {
-  .head > * {
-    font-size: 3vw;
-    font-weight: 600;
-    text-decoration: none;
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+    .menu-icon {
+      display: block;
+    }
+  .items {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 0.5rem;
+    background-color: var(--first-color);
+
+    transform-origin: top;
+    transition: transform 0.3s ease-out;
+    transform: translateZ(0) scale(1, 0);
   }
 
-  .items > * {
-    font-size: 2.3vw;
+  .items * {
+    margin: 0.5rem 0;
+  }
+  
+  .items li * {
+    opacity: 0;
+    transition: opacity 0.1s linear;
+  }
+
+ .head:has(input:checked) ~ .items {
+    display: block;
+    transform: translateZ(0) scale(1, 1);
+  }
+
+  .head:has(input:checked) ~ .items li * {
+    opacity: 1;
+    transition: opacity 0.3s linear 0.3s;
   }
 }
 </style>

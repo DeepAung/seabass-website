@@ -20,13 +20,13 @@ export default {
 .navbar {
   position: fixed;
   width: 100vw;
-  height: 10vh;
+  height: 80px;
   
   top: 0;
   z-index: 9999;
 }
 
 .container {
-  padding-top: 10vh;
+  padding-top: 80px;
 }
 </style>

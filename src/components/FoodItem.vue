@@ -1,7 +1,7 @@
 <template>
   <div @click="goToDetail(food.id)" class="item-container">
     <div class="img-wrapper">
-      <img :src="food.images[0]" alt="" />
+      <img :src="food.images[0]" :alt="food.name" />
     </div>
     <div class="info">
       {{ food.name }}
@@ -20,22 +20,40 @@ export default {
 };
 </script>
 
-<style>
-* {
-  transition: all 0.3s;
+<style scoped>
+.item-container,
+.item-container::after,
+.item-container :is(img, .info) {
+  transition: all 0.3s ease-out;
 }
 
 .item-container {
-  height: 35vh;
-  border-radius: 1rem;
+  height: 250px;
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+  position: relative;
+
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
 }
 
-.item-container:hover {
-  outline: 0.3vw solid var(--hover-color);
+.item-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 0.2rem solid rgba(0, 0, 0, 0);
+}
+
+.item-container:is(:hover, :focus) {
   box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.item-container:is(:hover, :focus)::after {
+  border: 0.2rem solid var(--hover-color);
 }
 
 .item-container .img-wrapper {
@@ -46,13 +64,13 @@ export default {
 
 .item-container .img-wrapper img {
   display: block;
-  height: 100%;
-  width: 100%;
+  height: 100.1%;
+  width: 100.1%;
   object-fit: cover;
 }
 
 .item-container:hover .img-wrapper img {
-  transform: scale(1.1);
+  transform: scale(1.05);
   filter: contrast(1.1);
 }
 
@@ -62,7 +80,7 @@ export default {
 
 .item-container .info {
   font-weight: 500;
-  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+  font-size: 110%;
 
   width: 100%;
   height: 25%;
@@ -72,5 +90,12 @@ export default {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+
+@media only screen and (max-width: 360px) {
+  .item-container {
+    height: 50vw;
+  }
 }
 </style>
