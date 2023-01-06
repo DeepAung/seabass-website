@@ -1,19 +1,19 @@
 <template>
   <div class="navbar-container">
-    <div class="logo">
-      <RouterLink to="/">รายการอาหาร</RouterLink>
+    <div class="head">
+      <RouterLink to="/" class="logo">รายการอาหาร</RouterLink>
+      <div class="menu-icon">
+        <input type="checkbox" />
+        <span class="first-span"></span>
+        <span class="second-span"></span>
+        <span class="third-span"></span>
+      </div>
     </div>
     <ul class="items">
       <li><RouterLink to="/">Home</RouterLink></li>
       <li><RouterLink to="/">About</RouterLink></li>
       <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
     </ul>
-    <div class="menu-icon">
-      <input type="checkbox" />
-      <span class="first-span"></span>
-      <span class="second-span"></span>
-      <span class="third-span"></span>
-    </div>
   </div>
 </template>
 
@@ -44,13 +44,14 @@ export default {
 
 /* logo -------------------------------------------- */
 
-.logo * {
+.head .logo {
   font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
+  transition: color 0.25s ease-out;
 }
 
-.logo *:hover {
+.head .logo:hover {
   color: var(--nav-hover-color);
 }
 
@@ -155,13 +156,53 @@ export default {
   transform: translate(4px, -0.55px) rotate(-45deg);
 }
 
+
 @media only screen and (max-width: 700px) {
-  .items {
-    display: none;
+  .navbar-container {
+    display: block;
+    height: min-content !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
-  .menu-icon {
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+    .menu-icon {
+      display: block;
+    }
+  .items {
     display: block;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 0.5rem;
+    background-color: var(--first-color);
+
+    transform-origin: top;
+    transition: transform 0.25s ease-out;
+    transform: scale(1, 0.01);
+  }
+
+  .items * {
+    margin: 0.5rem 0;
+    opacity: 0;
+    transition: opacity 0.25s linear 0.25s;
+  }
+
+ .head:has(input:checked) ~ .items {
+    display: block;
+    transform: scale(1, 1);
+  }
+
+  .head:has(input:checked) ~ .items * {
+    opacity: 1;
   }
 }
 </style>
