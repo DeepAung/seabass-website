@@ -31,4 +31,13 @@ export default {
   padding: 2rem;
   gap: 2rem;
 }
+
+
+@media only screen and (max-width: 360px) {
+  .food-container {
+    grid-template-columns: repeat(1, auto);
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+}
 </style>

@@ -90,7 +90,7 @@ export default {
   content: "";
   position: absolute;
   width: 100%;
-  transform: scaleX(0);
+  transform: translateZ(0) scaleX(0);
   height: 2px;
   bottom: 0;
   left: 0;
@@ -101,7 +101,7 @@ export default {
 }
 
 .items li *:hover::after {
-  transform: scaleX(1);
+  transform: translateZ(0) scaleX(1);
   background-color: var(--nav-hover-color);
   transform-origin: bottom center;
 }
@@ -158,17 +158,11 @@ export default {
 
 
 @media only screen and (max-width: 700px) {
-  .navbar-container {
-    display: block;
-    height: min-content !important;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
   .head {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
   }
   
     .menu-icon {
@@ -186,23 +180,27 @@ export default {
     background-color: var(--first-color);
 
     transform-origin: top;
-    transition: transform 0.25s ease-out;
-    transform: scale(1, 0.01);
+    transition: transform 0.3s ease-out;
+    transform: translateZ(0) scale(1, 0);
   }
 
   .items * {
     margin: 0.5rem 0;
+  }
+  
+  .items li * {
     opacity: 0;
-    transition: opacity 0.25s linear 0.25s;
+    transition: opacity 0.1s linear;
   }
 
  .head:has(input:checked) ~ .items {
     display: block;
-    transform: scale(1, 1);
+    transform: translateZ(0) scale(1, 1);
   }
 
-  .head:has(input:checked) ~ .items * {
+  .head:has(input:checked) ~ .items li * {
     opacity: 1;
+    transition: opacity 0.3s linear 0.3s;
   }
 }
 </style>
