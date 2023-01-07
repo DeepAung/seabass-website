@@ -92,7 +92,6 @@ export default {
   text-align: center;
 }
 
-
 @media only screen and (max-width: 360px) {
   .item-container {
     height: 50vw;

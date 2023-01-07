@@ -13,14 +13,19 @@
       <li><RouterLink to="/">Home</RouterLink></li>
       <li><RouterLink to="/">About</RouterLink></li>
       <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
+      <SearchBar class="search-bar" />
     </ul>
   </div>
 </template>
 
 <script>
 import { RouterLink } from "vue-router";
+import SearchBar from "../components/SearchBar.vue";
 
 export default {
+  components: {
+    SearchBar,
+  },
   data() {
     return {
       mathPath:
@@ -32,6 +37,7 @@ export default {
 
 <style scoped>
 .navbar-container {
+  position: relative;
   background-color: var(--first-color);
   padding: 0 5vw;
   display: flex;
@@ -72,8 +78,11 @@ export default {
   list-style: none;
 }
 
-.items li * {
+.items > * {
   margin: 0 1rem;
+}
+
+.items li * {
   text-decoration: none;
   font-size: 1rem;
 
@@ -156,18 +165,35 @@ export default {
   transform: translate(4px, -0.55px) rotate(-45deg);
 }
 
+@media only screen and (max-width: 900px) {
+  .head .logo {
+    font-size: 3vw;
+  }
 
-@media only screen and (max-width: 700px) {
+  .items li * {
+    font-size: 1.7vw;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .head .logo {
+    font-size: 2rem;
+  }
+
+  .items li * {
+    font-size: 1rem;
+  }
+
   .head {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
   }
-  
-    .menu-icon {
-      display: block;
-    }
+
+  .menu-icon {
+    display: block;
+  }
   .items {
     display: block;
     position: absolute;
@@ -184,23 +210,28 @@ export default {
     transform: translateZ(0) scale(1, 0);
   }
 
-  .items * {
-    margin: 0.5rem 0;
-  }
-  
-  .items li * {
-    opacity: 0;
-    transition: opacity 0.1s linear;
+  .items > * {
+    margin: 1rem;
   }
 
- .head:has(input:checked) ~ .items {
+  .items .search-bar {
+    max-width: none;
+    width: auto;
+  }
+
+  .items > * {
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+  }
+
+  .head:has(input:checked) ~ .items {
     display: block;
     transform: translateZ(0) scale(1, 1);
   }
 
-  .head:has(input:checked) ~ .items li * {
+  .head:has(input:checked) ~ .items > * {
     opacity: 1;
-    transition: opacity 0.3s linear 0.3s;
+    transition: opacity 0.3s ease-out 0.3s;
   }
 }
 </style>

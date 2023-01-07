@@ -21,7 +21,7 @@ export default {
   position: fixed;
   width: 100vw;
   height: 80px;
-  
+
   top: 0;
   z-index: 9999;
 }
