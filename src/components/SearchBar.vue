@@ -10,7 +10,7 @@
     <input
       :value="store.searchInput"
       @input="store.updateSearchInput($event.target.value)"
-      placeholder="Search"
+      placeholder="ค้นหา"
       type="search"
       class="input"
     />

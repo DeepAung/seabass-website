@@ -15,21 +15,18 @@ export default {
   },
   data() {
     return {
-      store,
       foodList: db.foods,
     };
   },
   computed: {
     filteredFoodList() {
-      console.log("filteredFoodList changed");
-
-      if (this.store.searchInput == "") {
-        return db.foods;
+      if (store.searchInput == "") {
+        return this.foodList;
       }
 
-      return db.foods.filter((food) => {
+      return this.foodList.filter((food) => {
         let foodName = food.name.toLowerCase();
-        let input = this.store.searchInput.toLowerCase();
+        let input = store.searchInput.toLowerCase();
         let result = foodName.includes(input);
 
         return result;
