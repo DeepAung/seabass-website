@@ -24,7 +24,7 @@
 <script>
 import { RouterLink } from "vue-router";
 import SearchBar from "../components/SearchBar.vue";
-import { store } from '../store.js'
+import { store } from "../store.js";
 
 export default {
   components: {
