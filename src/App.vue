@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .navbar {
   position: fixed;
-  width: 100vw;
+  width: 100%;
   height: 80px;
 
   top: 0;
