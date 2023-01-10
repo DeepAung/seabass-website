@@ -84,7 +84,7 @@ export default {
 
   width: 100%;
   height: 25%;
-  background-color: var(--second-color);
+  background-color: var(--first-color);
 
   display: flex;
   flex-direction: column;
