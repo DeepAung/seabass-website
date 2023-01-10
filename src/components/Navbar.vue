@@ -2,25 +2,29 @@
   <div class="navbar-container">
     <div class="head">
       <RouterLink to="/" class="logo">รายการอาหาร</RouterLink>
-      <div class="menu-icon">
+      <div @click="toggle = !toggle" class="menu-icon">
         <input type="checkbox" />
         <span class="first-span"></span>
         <span class="second-span"></span>
         <span class="third-span"></span>
       </div>
     </div>
-    <ul class="items">
-      <li><RouterLink to="/">Home</RouterLink></li>
-      <li><RouterLink to="/">About</RouterLink></li>
-      <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
-      <SearchBar class="search-bar" />
-    </ul>
+
+    <Transition>
+      <ul v-if="toggle || screenWidth > 780" class="items">
+        <li><RouterLink to="/">Home</RouterLink></li>
+        <li><RouterLink to="/">About</RouterLink></li>
+        <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
+        <SearchBar class="search-bar" />
+      </ul>
+    </Transition>
   </div>
 </template>
 
 <script>
 import { RouterLink } from "vue-router";
 import SearchBar from "../components/SearchBar.vue";
+import { store } from "../store.js";
 
 export default {
   components: {
@@ -28,9 +32,21 @@ export default {
   },
   data() {
     return {
-      mathPath:
-        "https://app.powerbi.com/view?r=eyJrIjoiMDNiMjFiOTktODJhZC00OTQwLTg2MDItMDllYTEwMDc4NDA1IiwidCI6IjQ5YTIwZmY1LTUxZGItNDYzMC05NmNhLTJjOWJiMTJlOTJiNCIsImMiOjEwfQ%3D%3D&pageName=ReportSection5c6c13d0c689b14be980",
+      toggle: false,
+      screenWidth: 0,
+      mathPath: store.mathPath,
     };
+  },
+  mounted() {
+    this.screenWidth = window.innerWidth;
+
+    window.addEventListener(
+      "resize",
+      () => {
+        this.screenWidth = window.innerWidth;
+      },
+      { passive: true }
+    );
   },
 };
 </script>
@@ -165,7 +181,9 @@ export default {
   transform: translate(4px, -0.55px) rotate(-45deg);
 }
 
-@media only screen and (max-width: 900px) {
+/* media -------------------------------------------- */
+
+@media only screen and (max-width: 900px) and (min-width: 780px) {
   .head .logo {
     font-size: 3vw;
   }
@@ -176,14 +194,6 @@ export default {
 }
 
 @media only screen and (max-width: 780px) {
-  .head .logo {
-    font-size: 2rem;
-  }
-
-  .items li * {
-    font-size: 1rem;
-  }
-
   .head {
     display: flex;
     align-items: center;
@@ -204,10 +214,6 @@ export default {
     height: fit-content;
     padding-bottom: 0.5rem;
     background-color: var(--first-color);
-
-    transform-origin: top;
-    transition: transform 0.3s ease-out;
-    transform: translateZ(0) scale(1, 0);
   }
 
   .items > * {
@@ -219,19 +225,41 @@ export default {
     width: auto;
   }
 
+  /* items transition */
+
+  .items {
+    transform-origin: top;
+    transition: all 0.3s ease-out;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    transform: scale(1, 0);
+  }
+
+  .v-enter-to,
+  .v-leave-from {
+    transform: scale(1, 1);
+  }
+
+  /* items links transition */
+
   .items > * {
+    transition: all 0.3s ease-out;
+  }
+
+  .v-enter-active > * {
+    transition: all 0.3s ease-out;
+    transition-delay: 0.3s;
+  }
+
+  .v-leave-active > * {
+    transition: all 0.1s ease-out;
+  }
+
+  .v-enter-from > *,
+  .v-leave-to > * {
     opacity: 0;
-    transition: opacity 0.1s ease-out;
-  }
-
-  .head:has(input:checked) ~ .items {
-    display: block;
-    transform: translateZ(0) scale(1, 1);
-  }
-
-  .head:has(input:checked) ~ .items > * {
-    opacity: 1;
-    transition: opacity 0.3s ease-out 0.3s;
   }
 }
 </style>
