@@ -2,16 +2,18 @@
 
 /* https://colorhunt.co/palette/1c315e227c7088a47ce6e2c3 */
 [data-theme="dark"] {
-  --font-color: rgb(255, 255, 255);
+  --font-color: white;
+  --font2-color: black;
   --first-color: rgb(37, 56, 96);
-  --background-color: #0a2647;
+  --background-color: linear-gradient(90deg, #1a3a60, #0a2647, #1a3a60);
 
   --hover-color: rgb(74, 214, 196);
   --hover-low-color: rgba(74, 214, 196, 0.3);
 }
 
 [data-theme="white"] {
-  --font-color: rgb(0, 0, 0);
+  --font-color: black;
+  --font2-color: white;
   --first-color: #89c4e1;
   --background-color: #eff5f5;
 
@@ -29,8 +31,7 @@
   font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
-.container,
-#app {
-  background-color: var(--background-color);
+.app-container {
+  background: var(--background-color);
   min-height: 100vh;
 }

@@ -40,15 +40,22 @@ export default {
 }
 
 .food-name {
+  color: var(--hover-color);
+  padding-left: 1rem;
   text-align: center;
   font-size: 3rem;
 }
 
 .food-image {
   display: block;
-  width: 100%;
-  max-width: 700px;
+  max-height: 400px;
+  height: 40vw;
   border-radius: 30px;
+  box-shadow: 0 0 10px 0.5px black;
+}
+
+.section h2 {
+  color: var(--hover-color);
 }
 
 .section li {
