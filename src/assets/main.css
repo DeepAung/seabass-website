@@ -1,15 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap");
 
-:root {
-  /* https://colorhunt.co/palette/1c315e227c7088a47ce6e2c3 */
-  --first-color: rgb(28, 49, 94);
-  --second-color: rgb(30, 117, 103);
-  --third-color: rgb(136, 164, 124);
-  --fourth-color: rgb(230, 226, 195);
+/* https://colorhunt.co/palette/1c315e227c7088a47ce6e2c3 */
+[data-theme="dark"] {
+  --font-color: rgb(255, 255, 255);
+  --first-color: rgb(37, 56, 96);
+  --background-color: #0a2647;
 
-  --nav-hover-color: rgb(74, 214, 196);
-  --nav-hover-low-color: rgba(74, 214, 196, 0.3);
-  --hover-color: rgb(132, 255, 228);
+  --hover-color: rgb(74, 214, 196);
+  --hover-low-color: rgba(74, 214, 196, 0.3);
+}
+
+[data-theme="white"] {
+  --font-color: rgb(0, 0, 0);
+  --first-color: #89c4e1;
+  --background-color: #eff5f5;
+
+  --hover-color: rgb(2, 101, 80);
+  --hover-low-color: rgba(2, 101, 80, 0.3);
 }
 
 *,
@@ -18,11 +25,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  color: var(--font-color);
   font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
+.container,
 #app {
-  background-color: var(--fourth-color);
+  background-color: var(--background-color);
   min-height: 100vh;
 }

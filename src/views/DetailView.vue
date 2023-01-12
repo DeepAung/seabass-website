@@ -30,10 +30,6 @@ export default {
 </script>
 
 <style scoped>
-* {
-  color: #000;
-}
-
 .container {
   padding: 0 5vw;
   padding-bottom: 1rem;
@@ -45,6 +41,7 @@ export default {
 
 .food-name {
   text-align: center;
+  font-size: 3rem;
 }
 
 .food-image {
