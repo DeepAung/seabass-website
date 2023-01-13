@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="app-container">
     <Navbar class="navbar" />
     <RouterView />
   </div>
@@ -26,7 +26,7 @@ export default {
   z-index: 9999;
 }
 
-.container {
+.app-container {
   padding-top: 80px;
 }
 </style>

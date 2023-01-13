@@ -1,3 +1,4 @@
+<!-- https://uiverse.io/alexruix/slippery-frog-10 -->
 <template>
   <div class="group">
     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
@@ -60,9 +61,9 @@ export default {
 .input:focus,
 .input:hover {
   outline: none;
-  border-color: var(--nav-hover-color);
+  border-color: var(--hover-color);
   background-color: #fff;
-  box-shadow: 0 0 0 3px var(--nav-hover-low-color);
+  box-shadow: 0 0 0 3px var(--hover-low-color);
 }
 
 .icon {

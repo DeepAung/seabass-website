@@ -30,10 +30,6 @@ export default {
 </script>
 
 <style scoped>
-* {
-  color: #000;
-}
-
 .container {
   padding: 0 5vw;
   padding-bottom: 1rem;
@@ -44,17 +40,31 @@ export default {
 }
 
 .food-name {
+  color: var(--hover-color);
+  padding-left: 1rem;
   text-align: center;
+  font-size: 3rem;
 }
 
 .food-image {
   display: block;
-  width: 100%;
-  max-width: 700px;
+  max-height: 400px;
+  height: 40vw;
   border-radius: 30px;
+  box-shadow: 0 0 3px var(--font-color);
+}
+
+.section h2 {
+  color: var(--hover-color);
 }
 
 .section li {
   margin-bottom: 0.25rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .food-name {
+    font-size: 8vw;
+  }
 }
 </style>

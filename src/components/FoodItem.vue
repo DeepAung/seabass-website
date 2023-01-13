@@ -80,11 +80,11 @@ export default {
 
 .item-container .info {
   font-weight: 500;
-  font-size: 110%;
+  font-size: 120%;
 
   width: 100%;
   height: 25%;
-  background-color: var(--second-color);
+  background-color: var(--first-color);
 
   display: flex;
   flex-direction: column;
@@ -95,6 +95,10 @@ export default {
 @media only screen and (max-width: 360px) {
   .item-container {
     height: 50vw;
+  }
+
+  .item-container .info {
+    font-size: 4.5vw;
   }
 }
 </style>

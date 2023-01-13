@@ -1,6 +1,6 @@
 <template>
   <div class="navbar-container">
-    <div class="head">
+    <div class="left-side">
       <RouterLink to="/" class="logo">รายการอาหาร</RouterLink>
       <div @click="toggle = !toggle" class="menu-icon">
         <input type="checkbox" />
@@ -10,25 +10,31 @@
       </div>
     </div>
 
-    <Transition>
-      <ul v-if="toggle || screenWidth > 780" class="items">
-        <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink to="/about">About</RouterLink></li>
-        <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
-        <SearchBar class="search-bar" />
-      </ul>
-    </Transition>
+    <div class="right-side">
+      <Transition>
+        <ul v-if="toggle || screenWidth > 780" class="items">
+          <li><RouterLink to="/">Home</RouterLink></li>
+          <li><RouterLink to="/about">About</RouterLink></li>
+          <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
+          <SearchBar class="search-bar" />
+        </ul>
+      </Transition>
+
+      <ThemeToggle class="theme-toggle" />
+    </div>
   </div>
 </template>
 
 <script>
 import { RouterLink } from "vue-router";
 import SearchBar from "../components/SearchBar.vue";
+import ThemeToggle from "./ThemeToggle.vue";
 import { store } from "../store.js";
 
 export default {
   components: {
     SearchBar,
+    ThemeToggle,
   },
   data() {
     return {
@@ -64,20 +70,30 @@ export default {
   box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.562);
 }
 
-/* logo -------------------------------------------- */
+/* left-side > logo --------------------------------------- */
 
-.head .logo {
+.left-side .logo {
   font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.25s ease-out;
 }
 
-.head .logo:hover {
-  color: var(--nav-hover-color);
+.left-side .logo:hover {
+  color: var(--hover-color);
 }
 
-/* items -------------------------------------------- */
+/* right-side -------------------------------------------- */
+.right-side {
+  display: flex;
+  align-items: center;
+}
+
+.right-side .theme-toggle {
+  margin-left: min(3vw, 3rem);
+}
+
+/* right-side > items ------------------------------------- */
 
 .items {
   font-weight: 500;
@@ -108,7 +124,7 @@ export default {
 }
 
 .items li *:hover {
-  color: var(--nav-hover-color);
+  color: var(--hover-color);
 }
 
 .items li *::after {
@@ -127,11 +143,11 @@ export default {
 
 .items li *:hover::after {
   transform: translateZ(0) scaleX(1);
-  background-color: var(--nav-hover-color);
+  background-color: var(--hover-color);
   transform-origin: bottom center;
 }
 
-/* menu-icon -------------------------------------------- */
+/* right-side > menu-icon ------------------------------------- */
 
 .menu-icon {
   position: relative;
@@ -183,18 +199,22 @@ export default {
 
 /* media -------------------------------------------- */
 
-@media only screen and (max-width: 900px) and (min-width: 780px) {
-  .head .logo {
+@media only screen and (max-width: 970px) and (min-width: 780px) {
+  .left-side .logo {
     font-size: 3vw;
   }
 
+  .items > * {
+    margin: 0 1vw;
+  }
+
   .items li * {
-    font-size: 1.7vw;
+    font-size: 1.5vw;
   }
 }
 
 @media only screen and (max-width: 780px) {
-  .head {
+  .left-side {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -260,6 +280,12 @@ export default {
   .v-enter-from > *,
   .v-leave-to > * {
     opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .left-side .logo {
+    font-size: calc(10vw - 0.5rem);
   }
 }
 </style>
