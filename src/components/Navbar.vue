@@ -13,7 +13,7 @@
     <Transition>
       <ul v-if="toggle || screenWidth > 780" class="items">
         <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink to="/">About</RouterLink></li>
+        <li><RouterLink to="/about">About</RouterLink></li>
         <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
         <SearchBar class="search-bar" />
       </ul>
