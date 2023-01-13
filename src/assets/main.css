@@ -29,9 +29,11 @@
   box-sizing: border-box;
   color: var(--font-color);
   font-family: "IBM Plex Sans Thai", sans-serif;
+  z-index: 1;
 }
 
 .app-container {
   background: var(--background-color);
   min-height: 100vh;
+  z-index: -1;
 }

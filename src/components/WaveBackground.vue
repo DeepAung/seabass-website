@@ -47,12 +47,6 @@
   </div>
 </template>
 
-<style>
-.app-container {
-  background: none !important;
-}
-</style>
-
 <style scoped>
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
@@ -73,7 +67,11 @@ p {
   height: 100vh;
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
 }
 
 .header {
@@ -127,7 +125,7 @@ p {
 
 .content {
   position: relative;
-  height: 15vh;
+  /* height: 15vh; */
   text-align: center;
   background-color: white;
 }
