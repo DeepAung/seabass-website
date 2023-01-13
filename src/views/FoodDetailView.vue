@@ -51,7 +51,7 @@ export default {
   max-height: 400px;
   height: 40vw;
   border-radius: 30px;
-  box-shadow: 0 0 10px 0.5px black;
+  box-shadow: 0 0 3px var(--font-color);
 }
 
 .section h2 {
@@ -60,5 +60,11 @@ export default {
 
 .section li {
   margin-bottom: 0.25rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .food-name {
+    font-size: 8vw;
+  }
 }
 </style>

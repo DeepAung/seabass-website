@@ -1,9 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
+import FoodListView from "../views/FoodListView.vue";
+import FoodDetailView from "../views/FoodDetailView.vue";
 import HomeView from "../views/HomeView.vue";
-import DetailView from "../views/DetailView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 };
+  },
   routes: [
     {
       path: "/",
@@ -11,9 +15,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: "/food-list",
+      name: "food-list",
+      component: FoodListView,
+    },
+    {
       path: "/detail/:id",
       name: "detail",
-      component: DetailView,
+      component: FoodDetailView,
     },
   ],
 });

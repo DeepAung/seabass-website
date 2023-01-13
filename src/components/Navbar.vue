@@ -86,6 +86,7 @@ export default {
 /* right-side -------------------------------------------- */
 .right-side {
   display: flex;
+  align-items: center;
 }
 
 .right-side .theme-toggle {
@@ -198,13 +199,17 @@ export default {
 
 /* media -------------------------------------------- */
 
-@media only screen and (max-width: 900px) and (min-width: 780px) {
+@media only screen and (max-width: 970px) and (min-width: 780px) {
   .left-side .logo {
     font-size: 3vw;
   }
 
+  .items > * {
+    margin: 0 1vw;
+  }
+
   .items li * {
-    font-size: 1.7vw;
+    font-size: 1.5vw;
   }
 }
 
