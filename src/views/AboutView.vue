@@ -1,26 +1,38 @@
 <template>
-  <h1 class="head">จัดทำโดย</h1>
-  <div class="sname">
-      <li><div class="name">นายพลกฤต แจ้งตามธรรม</div>
-          <div>ม.5/8 เลขที่ 18</div></li>
-      <li><div class="name">นายอชิระ อังสุมาล</div>
-        <div>ม.5/8 เลขที่ 21</div></li>
-      <li><div class="name">นายณัฐภัทร วีระนพสิทธิ์</div>
-        <div>ม.5/8 เลขที่ 23</div></li>
-      <li><div class="name">นายอังศุชวาล สมิตชาติ</div>
-        <div>ม.5/8 เลขที่ 27</div></li>
-      <li><div class="name">นายสุวิจักขณ์ กาญจนวรเสฏฐ์</div>
-        <div>ม.5/8 เลขที่ 49</div></li>
-  </div>
+  <section class="sname">
+    <h1 class="head">จัดทำโดย</h1>
 
-  <div class="credits">
-    <h1 class="head">
-        เครดิต
-    </h1>
-    <a class="link" v-for="credit in credits" :href="credit" target="_blank">
-        <li>{{ credit }}</li>
-    </a>
-  </div>
+    <li>
+      <div>นายพลกฤต แจ้งตามธรรม</div>
+      <div>ม.5/8 เลขที่ 18</div>
+    </li>
+    <li>
+      <div>นายอชิระ อังสุมาล</div>
+      <div>ม.5/8 เลขที่ 21</div>
+    </li>
+    <li>
+      <div>นายณัฐภัทร วีระนพสิทธิ์</div>
+      <div>ม.5/8 เลขที่ 23</div>
+    </li>
+    <li>
+      <div>นายอังศุชวาล สมิตชาติ</div>
+      <div>ม.5/8 เลขที่ 27</div>
+    </li>
+    <li>
+      <div>นายสุวิจักขณ์ กาญจนวรเสฏฐ์</div>
+      <div>ม.5/8 เลขที่ 49</div>
+    </li>
+  </section>
+
+  <section class="credits">
+    <h1 class="head">เครดิต</h1>
+
+    <div v-for="credit in credits">
+      <a :href="credit" target="_blank">
+        {{ credit }}
+      </a>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -41,35 +53,49 @@ export default {
 * {
   text-align: center;
 }
+
 li {
   list-style: none;
-  font-size: 3vw;
+}
+
+section {
+  padding: 1rem 0;
+}
+
+.head {
+  font-size: min(5vw, 3rem);
+  color: rgb(37, 56, 96);
+}
+
+.sname li div,
+.credits a {
+  font-size: min(3vw, 2rem);
   color: rgb(30, 117, 103);
 }
-.sname li{
-    margin-left: 20vw;
-    display: grid;
-    grid-template-columns: 40vw 1fr;
-    gap: 1vw;
-}
-.sname li div{
-    text-align: left;
-    color: rgb(30, 117, 103);
-}
-.head {
-  font-size: 5vw;
-  margin-top: 2vw;
-  color: var(--first-color);
+
+/* sname ----------------------------------------------------- */
+
+.sname li {
+  display: grid;
+  grid-template-columns: 1fr min(40vw, 30rem) auto 1fr;
+  gap: 1vw;
 }
 
-.credits {
-    margin-top: 6vw;
+.sname li :first-child {
+  grid-column-start: 2;
 }
+
+.sname li div {
+  text-align: left;
+}
+
+/* credits ----------------------------------------------------- */
+
 .credits a {
-    color: rgb(30, 117, 103);
+  transition: color 0.2s ease;
 }
 
-.credits a:hover, .credits li:hover {
-    color: rgb(136, 164, 124);
+.credits a:hover {
+  color: rgb(136, 164, 124);
 }
 </style>

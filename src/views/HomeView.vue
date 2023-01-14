@@ -6,7 +6,7 @@
         <h1>ยินดีต้อนรับเข้าสู่เว็บไซต์โครงงานบูรณาการ</h1>
         <h1>ปลากะพง</h1>
       </div>
-      <h3>กลุ่มสาระวิชาคอมพิวเตอร์และการงานอาชีพ</h3>
+      <h3>กลุ่มสาระวิชาการงานอาชีพและเทคโนโลยี</h3>
     </div>
 
     <button @click="goToFoodListView()" class="main-btn">
@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style scoped>
+* {
+  color: white;
+}
+
 h3 {
   font-size: min(3.125vw, 1.25rem);
 }
@@ -52,6 +56,7 @@ h3 {
 
 .head :first-child {
   font-size: min(5vw, 2rem);
+  margin-right: 0.5rem;
 }
 
 .head :nth-child(2) {
@@ -61,7 +66,7 @@ h3 {
 
 .main-btn {
   position: relative;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: 800;
 
   margin: 0 auto;
