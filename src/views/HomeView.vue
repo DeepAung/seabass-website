@@ -66,7 +66,7 @@ h3 {
 
 .main-btn {
   position: relative;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: 800;
 
   margin: 0 auto;

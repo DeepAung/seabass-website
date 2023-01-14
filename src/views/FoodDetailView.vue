@@ -43,7 +43,7 @@ export default {
   color: var(--font2-color);
   padding-left: 1rem;
   text-align: center;
-  font-size: 3rem;
+  font-size: clamp(1.2rem, 8vw, 3rem);
 }
 
 .food-image {
@@ -56,16 +56,11 @@ export default {
 
 .section h2 {
   color: var(--font2-color);
+  font-size: clamp(1.2rem, 6vw, 2rem);
 }
 
 .section li {
   margin-bottom: 0.25rem;
   color: black;
-}
-
-@media only screen and (max-width: 600px) {
-  .food-name {
-    font-size: 8vw;
-  }
 }
 </style>

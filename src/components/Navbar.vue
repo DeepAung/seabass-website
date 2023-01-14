@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-container">
     <div class="left-side">
-      <RouterLink to="/" class="logo">รายการอาหาร</RouterLink>
+      <RouterLink to="/food-list" class="logo">รายการอาหาร</RouterLink>
       <div @click="toggle = !toggle" class="menu-icon">
         <input type="checkbox" />
         <span class="first-span"></span>
@@ -67,7 +67,7 @@ export default {
   align-items: center;
   justify-content: space-between;
 
-  box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.562);
+  box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.3);
 }
 
 /* left-side > logo --------------------------------------- */

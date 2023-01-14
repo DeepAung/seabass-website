@@ -92,7 +92,7 @@ section {
 /* credits ----------------------------------------------------- */
 
 .credits a {
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .credits a:hover {
