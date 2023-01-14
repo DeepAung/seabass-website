@@ -40,7 +40,7 @@ export default {
 }
 
 .food-name {
-  color: var(--hover-color);
+  color: var(--font2-color);
   padding-left: 1rem;
   text-align: center;
   font-size: 3rem;
@@ -55,11 +55,12 @@ export default {
 }
 
 .section h2 {
-  color: var(--hover-color);
+  color: var(--font2-color);
 }
 
 .section li {
   margin-bottom: 0.25rem;
+  color: black;
 }
 
 @media only screen and (max-width: 600px) {

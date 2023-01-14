@@ -2,20 +2,29 @@
 
 /* https://colorhunt.co/palette/1c315e227c7088a47ce6e2c3 */
 [data-theme="dark"] {
-  --font-color: white;
-  --font2-color: black;
   --first-color: rgb(37, 56, 96);
-  --background-color: linear-gradient(90deg, #1a3a60, #0a2647, #1a3a60);
+  --second-color: rgb(30, 117, 103);
+  --third-color: rgb(136, 164, 124);
+  --fourth-color: rgb(230, 226, 195);
+  --background-color: rgb(230, 226, 195);
+
+  --font-color: white;
+  --font2-color: rgb(30, 117, 103);
 
   --hover-color: rgb(74, 214, 196);
-  --hover-low-color: rgba(74, 214, 196, 0.3);
+  --hover-low-color: rgba(74, 214, 195, 0.3);
 }
 
 [data-theme="white"] {
+  --first-color: #b7d5e2;
+  /* --second-color: #95c7dd; */
+  --second-color: rgb(174, 211, 159);
+  --third-color: #89c4e1;
+  --fourth-color: #89c4e1;
+  --background-color: rgb(230, 226, 195);
+
   --font-color: black;
-  --font2-color: white;
-  --first-color: #89c4e1;
-  --background-color: #eff5f5;
+  --font2-color: rgb(2, 101, 80);
 
   --hover-color: rgb(2, 101, 80);
   --hover-low-color: rgba(2, 101, 80, 0.3);
@@ -29,7 +38,7 @@
   box-sizing: border-box;
   color: var(--font-color);
   font-family: "IBM Plex Sans Thai", sans-serif;
-  z-index: 1;
+  z-index: 0;
 }
 
 .app-container {
