@@ -41,7 +41,6 @@ export default {
 
 .food-name {
   color: var(--font2-color);
-  padding-left: 1rem;
   text-align: center;
   font-size: clamp(1.2rem, 8vw, 3rem);
 }
@@ -51,7 +50,7 @@ export default {
   max-height: 400px;
   height: 40vw;
   border-radius: 30px;
-  box-shadow: 0 0 3px var(--font-color);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
 }
 
 .section h2 {

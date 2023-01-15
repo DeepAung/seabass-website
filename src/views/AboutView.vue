@@ -1,6 +1,13 @@
 <template>
-  <section class="sname">
+  <section class="made-by">
     <h1 class="head">จัดทำโดย</h1>
+    <p>
+      นักเรียนชั้นมัธยมศึกษาปีที่ 5/8 <br />
+      กลุ่มสาระการงานอาชีพและเทคโนโลยี
+    </p>
+  </section>
+  <section class="sname">
+    <h1 class="head">สมาชิกกลุ่ม</h1>
 
     <li>
       <div>นายพลกฤต แจ้งตามธรรม</div>
@@ -63,21 +70,23 @@ section {
 }
 
 .head {
-  font-size: min(5vw, 3rem);
+  font-size: min(5.25vw, 3rem);
   color: rgb(37, 56, 96);
 }
 
+.made-by p,
 .sname li div,
 .credits a {
-  font-size: min(3vw, 2rem);
-  color: rgb(30, 117, 103);
+  font-size: min(3.5vw, 2rem);
+  /* font-size: 0.3rem; */
+  color: var(--font2-color);
 }
 
 /* sname ----------------------------------------------------- */
 
 .sname li {
   display: grid;
-  grid-template-columns: 1fr min(40vw, 30rem) auto 1fr;
+  grid-template-columns: 1fr min(55vw, 30rem) auto 1fr;
   gap: 1vw;
 }
 
@@ -92,7 +101,7 @@ section {
 /* credits ----------------------------------------------------- */
 
 .credits a {
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
 }
 
 .credits a:hover {

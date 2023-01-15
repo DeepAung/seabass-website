@@ -172,10 +172,10 @@ export default {
   width: 1.4rem;
   margin: 0.3rem 0;
   border-radius: 100px;
-  background-color: white;
+  background-color: var(--font-color);
 
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    background-color 0.25s ease-out, opacity 0.55s ease;
 }
 
 .menu-icon .first-span {
@@ -249,7 +249,7 @@ export default {
 
   .items {
     transform-origin: top;
-    transition: all 0.3s ease-out;
+    transition: transform 0.25s ease-out, color 0.25s ease-out;
   }
 
   .v-enter-from,
@@ -265,12 +265,12 @@ export default {
   /* items links transition */
 
   .items > * {
-    transition: all 0.3s ease-out;
+    transition: all 0.25s ease-out;
   }
 
   .v-enter-active > * {
-    transition: all 0.3s ease-out;
-    transition-delay: 0.3s;
+    transition: all 0.25s ease-out;
+    transition-delay: 0.25s;
   }
 
   .v-leave-active > * {
