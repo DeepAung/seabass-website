@@ -68,6 +68,7 @@ export default {
   justify-content: space-between;
 
   box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.25s ease-out;
 }
 
 /* left-side > logo --------------------------------------- */
@@ -249,7 +250,7 @@ export default {
 
   .items {
     transform-origin: top;
-    transition: transform 0.25s ease-out, color 0.25s ease-out;
+    transition: transform 0.25s ease-out, background-color 0.25s ease-out;
   }
 
   .v-enter-from,
