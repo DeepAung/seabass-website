@@ -24,7 +24,7 @@ export default {
 .item-container,
 .item-container::after,
 .item-container :is(img, .info) {
-  transition: all 0.3s ease-out;
+  transition: all 0.25s ease-out;
 }
 
 .item-container {

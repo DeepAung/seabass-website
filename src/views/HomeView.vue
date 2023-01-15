@@ -6,7 +6,7 @@
         <h1>ยินดีต้อนรับเข้าสู่เว็บไซต์โครงงานบูรณาการ</h1>
         <h1>ปลากะพง</h1>
       </div>
-      <h3>กลุ่มสาระวิชาการงานอาชีพและเทคโนโลยี</h3>
+      <h3>กลุ่มสาระการงานอาชีพและเทคโนโลยี</h3>
     </div>
 
     <button @click="goToFoodListView()" class="main-btn">
@@ -79,7 +79,7 @@ h3 {
   color: var(--hover-color);
   background-color: rgba(0, 0, 0, 0);
   border: 3px solid var(--hover-color);
-  transition: all 0.2s ease-out;
+  transition: all 0.25s ease-out;
 }
 
 .main-btn:hover {
