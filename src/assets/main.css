@@ -1,16 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap");
 
-/* rgb(34, 124, 112) */
-:root {
-  --first-color: rgb(28, 49, 94);
+/* https://colorhunt.co/palette/1c315e227c7088a47ce6e2c3 */
+[data-theme="dark"] {
+  --first-color: rgb(37, 56, 96);
   --second-color: rgb(30, 117, 103);
   --third-color: rgb(136, 164, 124);
   --fourth-color: rgb(230, 226, 195);
+  --background-color: rgb(230, 226, 195);
 
-  --nav-hover-color: rgb(74, 214, 196);
-  --nav-hover-low-color: rgba(74, 214, 196, 0.3);
-  --hover-color: rgb(178, 255, 157);
-  /* https://colorhunt.co/palette/1c315e227c7088a47ce6e2c3 */
+  --font-color: white;
+  --font2-color: rgb(30, 117, 103);
+
+  --hover-color: rgb(74, 214, 196);
+  --hover-low-color: rgba(74, 214, 195, 0.3);
+}
+
+[data-theme="white"] {
+  --first-color: #b7d5e2;
+  /* --second-color: #95c7dd; */
+  --second-color: rgb(174, 211, 159);
+  --third-color: #89c4e1;
+  --fourth-color: #89c4e1;
+  --background-color: rgb(230, 226, 195);
+
+  --font-color: black;
+  --font2-color: rgb(2, 101, 80);
+
+  --hover-color: rgb(2, 101, 80);
+  --hover-low-color: rgba(2, 101, 80, 0.3);
 }
 
 *,
@@ -19,11 +36,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  color: var(--font-color);
   font-family: "IBM Plex Sans Thai", sans-serif;
+  z-index: 0;
+
+  transition: color 0.25s ease-out;
 }
 
-#app {
-  background-color: var(--fourth-color);
+.app-container {
+  background: var(--background-color);
   min-height: 100vh;
+  z-index: -1;
 }
