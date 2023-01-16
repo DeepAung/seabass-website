@@ -1,6 +1,6 @@
 import { reactive } from "vue";
 
-export const store = reactive({
+export default reactive({
   searchInput: "",
   updateSearchInput(value) {
     this.searchInput = value;
