@@ -1,21 +1,17 @@
 <template>
   <div class="navbar-container">
     <div class="left-side">
-      <RouterLink to="/food-list" class="logo">รายการอาหาร</RouterLink>
-      <div @click="toggle = !toggle" class="menu-icon">
-        <input type="checkbox" />
-        <span class="first-span"></span>
-        <span class="second-span"></span>
-        <span class="third-span"></span>
-      </div>
+      <RouterLink to="/" class="logo">ปลากะพง</RouterLink>
+      <MenuIcon @toggle="toggle = !toggle" />
     </div>
 
     <div class="right-side">
       <Transition>
         <ul v-if="toggle || screenWidth > 780" class="items">
-          <li><RouterLink to="/">Home</RouterLink></li>
-          <li><RouterLink to="/about">About</RouterLink></li>
-          <li><a :href="mathPath" target="_blank">กลุ่มสาระคณิตศาสตร์</a></li>
+          <li><RouterLink to="/">หน้าหลัก</RouterLink></li>
+          <li><RouterLink to="/about">เกี่ยวกับ</RouterLink></li>
+          <DropdownMenu />
+
           <SearchBar class="search-bar" />
         </ul>
       </Transition>
@@ -27,14 +23,19 @@
 
 <script>
 import { RouterLink } from "vue-router";
-import SearchBar from "../components/SearchBar.vue";
+import store from "../store.js";
+
+import MenuIcon from "./MenuIcon.vue";
+import SearchBar from "./SearchBar.vue";
 import ThemeToggle from "./ThemeToggle.vue";
-import { store } from "../store.js";
+import DropdownMenu from "./DropdownMenu.vue";
 
 export default {
   components: {
+    MenuIcon,
     SearchBar,
     ThemeToggle,
+    DropdownMenu,
   },
   data() {
     return {
@@ -57,7 +58,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .navbar-container {
   position: relative;
   background-color: var(--first-color);
@@ -88,6 +89,8 @@ export default {
 .right-side {
   display: flex;
   align-items: center;
+
+  height: 100%;
 }
 
 .right-side .theme-toggle {
@@ -96,7 +99,7 @@ export default {
 
 /* right-side > items ------------------------------------- */
 
-.items {
+.right-side .items {
   font-weight: 500;
 
   height: 100%;
@@ -107,15 +110,19 @@ export default {
   justify-content: right;
 }
 
-.items li {
+.right-side .items li {
   list-style: none;
+
+  display: flex;
+  align-items: center;
 }
 
-.items > * {
+.right-side .items > * {
   margin: 0 1rem;
+  height: 100%;
 }
 
-.items li * {
+.right-side .items li * {
   text-decoration: none;
   font-size: 1rem;
 
@@ -124,11 +131,11 @@ export default {
   transition: color 0.25s ease-out;
 }
 
-.items li *:hover {
+.right-side .items li *:hover {
   color: var(--hover-color);
 }
 
-.items li *::after {
+.right-side .items li *::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -142,75 +149,25 @@ export default {
   transition: transform 0.25s ease-out, background-color 0.25s ease-out;
 }
 
-.items li *:hover::after {
+.right-side .items li *:hover::after {
   transform: translateZ(0) scaleX(1);
   background-color: var(--hover-color);
   transform-origin: bottom center;
 }
 
-/* right-side > menu-icon ------------------------------------- */
-
-.menu-icon {
-  position: relative;
-  display: none;
-}
-
-.menu-icon input {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  cursor: pointer;
-  opacity: 0;
-  z-index: 999;
-}
-
-.menu-icon span {
-  display: block;
-  height: 0.2rem;
-  width: 1.4rem;
-  margin: 0.3rem 0;
-  border-radius: 100px;
-  background-color: var(--font-color);
-
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    background-color 0.25s ease-out, opacity 0.55s ease;
-}
-
-.menu-icon .first-span {
-  transform-origin: 0% 0%;
-}
-.menu-icon .third-span {
-  transform-origin: 0% 100%;
-}
-
-.menu-icon input:checked ~ .first-span {
-  transform: translate(4px, 0.55px) rotate(45deg);
-}
-
-.menu-icon input:checked ~ .second-span {
-  opacity: 0;
-}
-
-.menu-icon input:checked ~ .third-span {
-  transform: translate(4px, -0.55px) rotate(-45deg);
-}
-
 /* media -------------------------------------------- */
 
-@media only screen and (max-width: 970px) and (min-width: 780px) {
+@media only screen and (max-width: 900px) and (min-width: 780px) {
   .left-side .logo {
-    font-size: 3vw;
+    font-size: 3.6vw;
   }
 
-  .items > * {
+  .right-side .items > * {
     margin: 0 1vw;
   }
 
-  .items li * {
-    font-size: 1.5vw;
+  .right-side .items li * {
+    font-size: 2vw;
   }
 }
 
@@ -222,10 +179,7 @@ export default {
     width: 100%;
   }
 
-  .menu-icon {
-    display: block;
-  }
-  .items {
+  .right-side .items {
     display: block;
     position: absolute;
     top: 100%;
@@ -237,18 +191,18 @@ export default {
     background-color: var(--first-color);
   }
 
-  .items > * {
+  .right-side .items > * {
     margin: 1rem;
   }
 
-  .items .search-bar {
+  .right-side .items .search-bar {
     max-width: none;
     width: auto;
   }
 
   /* items transition */
 
-  .items {
+  .right-side .items {
     transform-origin: top;
     transition: transform 0.25s ease-out, background-color 0.25s ease-out;
   }
@@ -265,7 +219,7 @@ export default {
 
   /* items links transition */
 
-  .items > * {
+  .right-side .items > * {
     transition: all 0.25s ease-out;
   }
 

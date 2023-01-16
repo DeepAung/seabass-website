@@ -32,7 +32,7 @@
   </section>
 
   <section class="credits">
-    <h1 class="head">เครดิต</h1>
+    <h1 class="head">แหล่งข้อมูล</h1>
 
     <div v-for="credit in credits">
       <a :href="credit" target="_blank">

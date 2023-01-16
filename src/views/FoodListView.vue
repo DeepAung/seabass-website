@@ -6,7 +6,7 @@
 
 <script>
 import db from "../database.json";
-import { store } from "../store.js";
+import store from "../store.js";
 import FoodItem from "../components/FoodItem.vue";
 
 export default {
